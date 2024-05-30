@@ -19,7 +19,7 @@ data:
   batch_size_test: 256
   num_workers: 4
   output_dim: 120
-  path_root: "Stanford_Dog/Images"
+  path_root: "Stanford_Dog"
 
 
 logger:
