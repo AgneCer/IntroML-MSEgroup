@@ -1,10 +1,10 @@
 training:
-  num_epochs: 15
+  num_epochs: 50
   save_name: "trained_competition.pt"
 
 #dataset names: "Flowers", "Cub", "Dogs", "Airplanes", "Food"
 
-dataset: "Flowers"
+dataset: "Train_Competition"
 
 #model name: "CLIP", "Vgg19", "ResNet50"
 
@@ -12,13 +12,13 @@ model: "ResNet50"
 
 pretrained:
   pre_t: False
-  load: "trained_competition.pt"
+  load: ".pt"
 
 data:
   batch_size_train: 32
   batch_size_test: 32
   num_workers: 4
-  output_dim: 102
+  output_dim: #DAMETTERE IN BASE ALLE CLASSI
 
 logger:
   wandb: True
