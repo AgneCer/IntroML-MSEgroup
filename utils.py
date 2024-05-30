@@ -53,7 +53,7 @@ def load_model(model, filename, current_model):
 
 
 # predictions on the TEST set
-def return_predictions_dict(model, test_loader, device):
+def return_predictions_dict(model, test_loader, device, keep_full_label=True):
     model.eval()
     preds_dict = {}
 
@@ -63,7 +63,13 @@ def return_predictions_dict(model, test_loader, device):
             outputs = model(inputs)
             _, predicted = outputs.max(1)
             image_id = idx + 1  # Assuming image IDs start from 1
-            preds_dict[image_id] = predicted.item()
+            
+            # Extracting the label based on the value of keep_full_label
+            label = predicted.item()
+            if not keep_full_label:
+                label = str(label).split('_')[0]
+            
+            preds_dict[image_id] = label
 
     return preds_dict
 

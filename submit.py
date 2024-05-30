@@ -25,7 +25,9 @@ if __name__ == "__main__":
 
     best_model = utils.load_model(model, filename, current_model)
     
-    preds = utils.return_predictions_dict(best_model, test_loader, device)
+    # Passa `keep_full_label=True` per mantenere le etichette complete (id_name)
+    # Passa `keep_full_label=False` per ottenere solo l'ID dalle etichette
+    preds = utils.return_predictions_dict(best_model, test_loader, device, keep_full_label=False)
 
     res = {
         "images": preds,
