@@ -1,6 +1,6 @@
 training:
   num_epochs: 2
-  save_name: "trained_Dogs.pt"
+  save_name: "trained_CUB.pt"
 
 #dataset names: "Flowers", "Cub", "Dogs", "Airplanes", "Food"
 
@@ -18,9 +18,10 @@ data:
   batch_size_train: 64
   batch_size_test: 256
   num_workers: 4
-  output_dim: 120
-  path_root: "Stanford_Dog"
+  output_dim: 200
+  path_root: "CUB_data"
 
 
 logger:
   wandb: True
+
