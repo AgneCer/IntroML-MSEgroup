@@ -8,14 +8,10 @@ pretrained:
   load: "trained_competition.pt"
 
 data:
-  batch_size_train:  # DA CAMBIARE A SECONDA DEi risultati
-  batch_size_test: 32 # DA CAMBIARE A SECONDA DEi risultati
+  batch_size_train: 64
+  batch_size_test: 256
   num_workers: 4
-  output_dim: # DA CAMBIARE A SECONDA DELLE CLASSI
+  output_dim: 3
 
-param:
-  mean:
-  sd:
-  
 logger:
   wandb: False

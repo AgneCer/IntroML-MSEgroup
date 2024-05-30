@@ -15,11 +15,10 @@ pretrained:
   load: ".pt"
 
 data:
-  batch_size_train: 32
-  batch_size_test: 32
+  batch_size_train: 64
+  batch_size_test: 256
   num_workers: 4
-  output_dim: #DAMETTERE IN BASE ALLE CLASSI
-
+  output_dim: 3
 logger:
   wandb: True
 

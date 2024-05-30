@@ -56,7 +56,7 @@ def load_model(model, filename, current_model):
 def return_predictions_dict(model, test_loader, device, keep_full_label=True):
     model.eval()
     preds_dict = {}
-
+    
     with torch.no_grad():
         for idx, inputs in tqdm(enumerate(test_loader), total=len(test_loader), desc="Making Predictions"):
             inputs = inputs.to(device)
