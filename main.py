@@ -51,8 +51,10 @@ def main(args):
 
         if config["dataset"]=="Flowers":
             train_loader, val_loader = dataset.get_data_flowers(batch_size_train, batch_size_test, num_workers, transform=preprocess)
+        
         elif config["dataset"]=="Train_Competition":
             print("You're training for the competition!")
+
         else:
             # ADD HERE OTHER DATA LOADERS
             print("Cannot find dataset")
@@ -66,6 +68,7 @@ def main(args):
     else:
         if config["dataset"] == "Flowers":
             train_loader, val_loader = dataset.get_data_flowers(batch_size_train, batch_size_test, num_workers)
+        
         elif config["dataset"]=="Train_Competition":
             print("You're training for the competition!")
         else:
