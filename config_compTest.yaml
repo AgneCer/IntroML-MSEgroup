@@ -1,10 +1,3 @@
-training:
-  num_epochs: 2
-  save_name: ""
-
-#dataset names: "Flowers", "Cub", "Dogs", "Airplanes", "Food"
-
-dataset: "Flowers"
 
 #model name: "CLIP", "Vgg19", "ResNet50"
 
@@ -15,12 +8,10 @@ pretrained:
   load: "trained_competition.pt"
 
 data:
-  batch_size_train: 32
-  batch_size_test: 32
+  batch_size_train:  # DA CAMBIARE A SECONDA DEi risultati
+  batch_size_test: 32 # DA CAMBIARE A SECONDA DEi risultati
   num_workers: 4
-  output_dim: 102
+  output_dim: # DA CAMBIARE A SECONDA DELLE CLASSI
 
 logger:
-  wandb: True
-
-competition: False
+  wandb: False
