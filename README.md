@@ -8,3 +8,6 @@ Azure:
 5. now you can run python main.py
     python main.py --config [config].yaml --run_name [my_run]
     (remember to pip install clip on the ssh)
+
+
+    scp -r -P 5012 "C:/Users/prova/Downloads/competition_dataset" disi@lab-b19fb86e-17c2-41af-aa77-c4a6adf27da4.westeurope.cloudapp.azure.com:/home/disi/CLIP_project

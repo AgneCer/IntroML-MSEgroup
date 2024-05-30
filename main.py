@@ -8,6 +8,8 @@ import dataset
 import model as mdl
 from train import train_model
 import utils
+import os
+
 
 
 def main(args):
@@ -35,6 +37,8 @@ def main(args):
     logger = config["logger"]["wandb"]
     current_model = config["model"]
     path_root = config["data"]["path_root"]
+    path_root = os.path.normpath(path_root)
+
 
     criterion = nn.CrossEntropyLoss()
 
@@ -54,7 +58,7 @@ def main(args):
             train_loader, val_loader = dataset.get_data_flowers(batch_size_train, batch_size_test, num_workers, transform=preprocess)
         
         elif config["dataset"]=="Train_Competition":
-            train_loader, val_loader = dataset.create_dataloader(path_root, batch_size_train, img_size=224, val_split=0.2, mode='train', mean=None, std=None, stats_dir='stats', transform=preprocess)
+            train_loader, val_loader, mean, std  = dataset.create_dataloader(path_root, batch_size_train, img_size=224, val_split=0.2, mode='train', mean=None, std=None, stats_dir='stats', transform=preprocess)
             print("You're training for the competition!")
 
         else:
@@ -72,7 +76,7 @@ def main(args):
             train_loader, val_loader = dataset.get_data_flowers(batch_size_train, batch_size_test, num_workers)
         
         elif config["dataset"]=="Train_Competition":
-            train_loader, val_loader = dataset.create_dataloader(path_root, batch_size_train, img_size=224, val_split=0.2, mode='train', mean=None, std=None, stats_dir='stats', transform=None)
+            train_loader, val_loader, mean, std  = dataset.create_dataloader(path_root, batch_size_train, img_size=224, val_split=0.2, mode='train', mean=None, std=None, stats_dir='stats', transform=None)
             print("You're training for the competition!")
         else:
             # ADD HERE OTHER DATA LOADERS

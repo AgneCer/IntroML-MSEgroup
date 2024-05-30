@@ -1,6 +1,7 @@
 from http.client import responses
 import requests
 import json
+import os
 import utils
 import argparse
 import torch
@@ -38,6 +39,7 @@ picked_model = config["model"]
 output_dim= config["data"]["output_dim"]
 filename = config["pretrained"]["load"]
 path_root = config["data"]["path_root"]
+path_root = os.path.normpath(path_root)
 batch_size_test = config["data"]["batch_size_test"]
 
 
