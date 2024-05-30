@@ -1,6 +1,6 @@
 training:
   num_epochs: 2
-  save_name: "trained_Carspt"
+  save_name: "trained_Cars.pt"
 
 #dataset names: "Flowers", "Cub", "Dogs", "Airplanes", "Food"
 
