@@ -1,0 +1,17 @@
+
+#model name: "CLIP", "Vgg19", "ResNet50"
+
+model: "ResNet50"
+
+pretrained:
+  pre_t: True
+  load: "trained_competition.pt"
+
+data:
+  batch_size_train:  # DA CAMBIARE A SECONDA DEi risultati
+  batch_size_test: 32 # DA CAMBIARE A SECONDA DEi risultati
+  num_workers: 4
+  output_dim: # DA CAMBIARE A SECONDA DELLE CLASSI
+
+logger:
+  wandb: False
