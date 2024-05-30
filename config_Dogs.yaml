@@ -1,0 +1,27 @@
+training:
+  num_epochs: 2
+  save_name: "trained_Dogs.pt"
+
+#dataset names: "Flowers", "Cub", "Dogs", "Airplanes", "Food"
+
+dataset: "Train_Competition"
+
+#model name: "CLIP", "Vgg19", "ResNet50"
+
+model: "ResNet50"
+
+pretrained:
+  pre_t: False
+  load: ".pt"
+
+data:
+  batch_size_train: 64
+  batch_size_test: 256
+  num_workers: 4
+  output_dim: 120
+  path_root: "Stanford_Dog/Images"
+
+
+logger:
+  wandb: True
+
