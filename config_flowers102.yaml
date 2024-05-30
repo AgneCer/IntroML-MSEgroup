@@ -22,3 +22,5 @@ data:
 
 logger:
   wandb: True
+
+competition: False

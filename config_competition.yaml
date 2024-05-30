@@ -4,8 +4,6 @@ training:
 
 #dataset names: "Flowers", "Cub", "Dogs", "Airplanes", "Food"
 
-competition: "Test"
-
 dataset: "Flowers"
 
 #model name: "CLIP", "Vgg19", "ResNet50"
@@ -24,3 +22,5 @@ data:
 
 logger:
   wandb: True
+
+competition: True
