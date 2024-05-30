@@ -13,5 +13,9 @@ data:
   num_workers: 4
   output_dim: # DA CAMBIARE A SECONDA DELLE CLASSI
 
+param:
+  mean:
+  sd:
+  
 logger:
   wandb: False
