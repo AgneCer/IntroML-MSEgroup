@@ -29,7 +29,7 @@ if __name__ == "__main__":
 
     res = {
         "images": preds,
-        "groupname": "your_group_name"
+        "groupname": "MSE-MagnificheSireneEnterprise"
     }
 
     submit(res)
