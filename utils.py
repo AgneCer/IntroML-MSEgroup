@@ -58,21 +58,20 @@ def return_predictions_dict(model, test_loader, device, keep_full_label=True):
     preds_dict = {}
     
     with torch.no_grad():
-        for _, (inputs,image_id) in tqdm(enumerate(test_loader), total=len(test_loader), desc="Making Predictions"):
+        for inputs, image_ids in tqdm(test_loader, total=len(test_loader), desc="Making Predictions"):
             inputs = inputs.to(device)
             outputs = model(inputs)
             _, predicted = outputs.max(1)
             
-            # Extracting the label based on the value of keep_full_label
-            label = predicted.item()
-            if not keep_full_label:
-                label = str(label).split('_')[0]
-            
-            preds_dict[image_id] = label
+            # Itera attraverso il batch per associare ciascun image_id alla previsione corrispondente
+            for image_id, label in zip(image_ids, predicted):
+                label = label.item()
+                if not keep_full_label:
+                    label = str(label).split('_')[0]
+                
+                preds_dict[image_id] = label
 
     return preds_dict
-
-
 #use azure machine:
 #type into powershell terminal:
 #scp -r -P 5012 "D:/DATA SCIENCE/MACHINE LEARNING/CLIP_project" disi@lab-b19fb86e-17c2-41af-aa77-c4a6adf27da4.westeurope.cloudapp.azure.com:/home/disi/
