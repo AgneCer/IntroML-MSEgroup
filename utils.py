@@ -58,11 +58,10 @@ def return_predictions_dict(model, test_loader, device, keep_full_label=True):
     preds_dict = {}
     
     with torch.no_grad():
-        for idx, inputs in tqdm(enumerate(test_loader), total=len(test_loader), desc="Making Predictions"):
+        for _, (inputs,image_id) in tqdm(enumerate(test_loader), total=len(test_loader), desc="Making Predictions"):
             inputs = inputs.to(device)
             outputs = model(inputs)
             _, predicted = outputs.max(1)
-            image_id = idx + 1  # Assuming image IDs start from 1
             
             # Extracting the label based on the value of keep_full_label
             label = predicted.item()
