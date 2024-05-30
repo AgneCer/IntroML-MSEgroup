@@ -51,7 +51,7 @@ def main(args):
         model, preprocess = mdl.get_CLIP_model(output_dim=output_dim)  # 102 classes in Flowers102 dataset
 
         if load_model:
-            utils.load_model(model, pretrained_model, current_model)
+            utils.load_model(model, pretrained_model, current_model, output_dim)
             print("Pretrained model loaded!")
 
         if config["dataset"]=="Flowers":
@@ -86,7 +86,7 @@ def main(args):
             model = mdl.get_Vgg19_model(output_dim=output_dim)
 
             if load_model:
-                utils.load_model(model, pretrained_model, current_model)
+                utils.load_model(model, pretrained_model, current_model, output_dim)
                 print("Pretrained model loaded!")
 
             optimizer = optim.Adam(model.classifier.parameters(), lr=0.001)
@@ -97,7 +97,7 @@ def main(args):
             model = mdl.get_ResNet50_model(output_dim=output_dim)
 
             if load_model:
-                utils.load_model(model, pretrained_model, current_model)
+                utils.load_model(model, pretrained_model, current_model, output_dim)
                 print("Pretrained model loaded!")
 
             optimizer = optim.Adam(model.additional_layers.parameters(), lr=0.001, weight_decay=1e-4)
@@ -112,12 +112,3 @@ if __name__ == "__main__":
     parser.add_argument("--run_name", required=False, type=str, help="Name of the run")
     args = parser.parse_args()
     main(args)
-
-
-#further improvements:
-# DROP OUT
-# OPTIMIZER
-# LEARNING RATE (scheduler): StepLR decreases the learning rate by gamma every step_size epochs
-# MOMENTUM
-# change batch size!
-# function to stop training if model does not improve...

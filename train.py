@@ -29,7 +29,7 @@ def train_model(model, train_loader, val_loader, criterion, optimizer, scheduler
         
         # Step the scheduler
         scheduler.step()
-
+        print(f"PRINT LABELS: {labels}")
         train_accuracy = 100. * correct / total
         train_loss = running_loss / len(train_loader)
 

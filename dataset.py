@@ -66,6 +66,11 @@ class CustomImageDataset(Dataset):
         self.root_dir = root_dir
         self.transform = transform
         self.classes = os.listdir(root_dir)
+        
+        # NUOVA AGGUNTA
+        self.class_to_idx = {class_name: idx for idx, class_name in enumerate(self.classes)}
+        self.idx_to_class = {idx: class_name for class_name, idx in self.class_to_idx.items()}
+
         self.image_paths = []
         self.labels = []
 
@@ -77,6 +82,11 @@ class CustomImageDataset(Dataset):
                 self.image_paths.append(img_path)
                 self.labels.append(label)
         
+        # Optionally save the class mapping to a file
+        class_mapping = self.idx_to_class
+        with open('class_mapping.json', 'w') as f:
+            json.dump(class_mapping, f)
+
     def __len__(self):
         return len(self.image_paths)
     

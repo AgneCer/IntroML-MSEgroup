@@ -5,6 +5,9 @@ import sys
 from tqdm import tqdm
 
 
+device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+
+
 def install_CLIP(package):
     try:
         subprocess.check_call([sys.executable, '-m', 'pip', 'install', package])
@@ -30,30 +33,29 @@ def save_model(model, filename, current_model):
 
 
 
-def load_model(model, filename, current_model):
+def load_model(model_class, filename, current_model, output_dim, device=device):
     print("Loading model ...")
 
     save_folder = "trained_model"
     
-    if not os.path.exists(save_folder):
-        os.makedirs(save_folder)
-    
     save_folder_model = os.path.join(save_folder, current_model)
-    if not os.path.exists(save_folder_model):
-        os.makedirs(save_folder_model)
-
     save_path = os.path.join(save_folder_model, filename)
-   
+    print(f"Saving path to download model: {save_path}")
+
     if os.path.exists(save_path):
-        model.load_state_dict(torch.load(save_path))
-        model.eval()  # Mettere il modello in modalità valutazione
+        model = model_class(output_dim=output_dim).to(device)  # Initialize the model before loading the state
+        model.load_state_dict(torch.load(save_path, map_location=device))
+        model.eval()  # Put the model in evaluation mode
         print("The model has been successfully loaded!")
+        return model
     else:
         print("Model file not found!")
+        return None
+
 
 
 # predictions on the TEST set
-def return_predictions_dict(model, test_loader, device, keep_full_label=True):
+def return_predictions_dict(model, test_loader, device, class_mapping, keep_full_label=True):
     model.eval()
     preds_dict = {}
     
@@ -63,15 +65,18 @@ def return_predictions_dict(model, test_loader, device, keep_full_label=True):
             outputs = model(inputs)
             _, predicted = outputs.max(1)
             
-            # Itera attraverso il batch per associare ciascun image_id alla previsione corrispondente
+            # Iterate through the batch to associate each image_id with the corresponding prediction
             for image_id, label in zip(image_ids, predicted):
                 label = label.item()
+                class_name = class_mapping[str(label)]  # Get class name from the label
                 if not keep_full_label:
-                    label = str(label).split('_')[0]
+                    class_name = class_name.split('_')[0]
                 
-                preds_dict[image_id] = label
+                preds_dict[image_id] = class_name
 
     return preds_dict
+
+
 #use azure machine:
 #type into powershell terminal:
 #scp -r -P 5012 "D:/DATA SCIENCE/MACHINE LEARNING/CLIP_project" disi@lab-b19fb86e-17c2-41af-aa77-c4a6adf27da4.westeurope.cloudapp.azure.com:/home/disi/
