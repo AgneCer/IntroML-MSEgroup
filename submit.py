@@ -37,6 +37,9 @@ with open(args.config, "r") as f:
 picked_model = config["model"]
 output_dim= config["data"]["output_dim"]
 filename = config["pretrained"]["load"]
+path_root = config["data"]["path_root"]
+batch_size_test = config["data"]["batch_size_test"]
+
 
 
 
@@ -44,11 +47,11 @@ filename = config["pretrained"]["load"]
 if  picked_model == "CLIP":
     utils.install_CLIP('git+https://github.com/openai/CLIP.git')
     best_model, preprocess = mdl.get_CLIP_model(output_dim=output_dim)  
-    test_loader = None
+    test_loader = dataset.create_dataloader(path_root, batch_size_test, img_size=224, val_split=0.2, mode='test', mean=None, std=None, stats_dir='stats', transform=preprocess)
 
 
 else:
-    test_loader = None
+    test_loader = dataset.create_dataloader(path_root, batch_size_test, img_size=224, val_split=0.2, mode='test', mean=None, std=None, stats_dir='stats', transform=None)
     if picked_model == "Vgg19":
         best_model = mdl.get_Vgg19_model(output_dim=output_dim)
     elif picked_model == "ResNet50":
@@ -67,5 +70,6 @@ res = {
     "groupname": "MSE-MagnificheSireneEnterprise"
 }
 
-submit(res)
+print(res)
+#submit(res) 
 

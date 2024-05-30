@@ -19,6 +19,9 @@ data:
   batch_size_test: 256
   num_workers: 4
   output_dim: 3
+  path_root: "C:\Users\prova\Downloads\competition_dataset\train"
+
+
 logger:
   wandb: True
 

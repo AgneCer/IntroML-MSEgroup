@@ -34,6 +34,7 @@ def main(args):
     pretrained_model = config["pretrained"]["load"]
     logger = config["logger"]["wandb"]
     current_model = config["model"]
+    path_root = config["data"]["path_root"]
 
     criterion = nn.CrossEntropyLoss()
 
@@ -53,6 +54,7 @@ def main(args):
             train_loader, val_loader = dataset.get_data_flowers(batch_size_train, batch_size_test, num_workers, transform=preprocess)
         
         elif config["dataset"]=="Train_Competition":
+            train_loader, val_loader = dataset.create_dataloader(path_root, batch_size_train, img_size=224, val_split=0.2, mode='train', mean=None, std=None, stats_dir='stats', transform=preprocess)
             print("You're training for the competition!")
 
         else:
@@ -70,6 +72,7 @@ def main(args):
             train_loader, val_loader = dataset.get_data_flowers(batch_size_train, batch_size_test, num_workers)
         
         elif config["dataset"]=="Train_Competition":
+            train_loader, val_loader = dataset.create_dataloader(path_root, batch_size_train, img_size=224, val_split=0.2, mode='train', mean=None, std=None, stats_dir='stats', transform=None)
             print("You're training for the competition!")
         else:
             # ADD HERE OTHER DATA LOADERS
