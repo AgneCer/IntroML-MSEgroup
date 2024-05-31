@@ -81,7 +81,7 @@ else:
 
 # Keep full label=True for complete label (id_name)
 # Keep full label=False to get just the id
-preds = utils.return_predictions_dict(best_model, test_loader, device, class_mapping)
+preds = utils.return_predictions_dict(best_model, test_loader, device, class_mapping, False)
 
 res = {
     "images": preds,

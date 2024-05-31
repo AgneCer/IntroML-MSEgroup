@@ -55,7 +55,7 @@ def load_model(model_class, filename, current_model, output_dim, device=device):
 
 
 # predictions on the TEST set
-def return_predictions_dict(model, test_loader, device, class_mapping, keep_full_label=True):
+def return_predictions_dict(model, test_loader, device, class_mapping, keep_full_label=False):
     model.eval()
     preds_dict = {}
     
