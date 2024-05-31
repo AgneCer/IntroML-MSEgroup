@@ -22,7 +22,7 @@ def main(args):
     if config["logger"]["wandb"]:
         import wandb
         wandb.login()
-        wandb.init(project="UDA", 
+        wandb.init(project="MSE_group", 
                    config=config, 
                    name=f"{args.run_name}")
         
