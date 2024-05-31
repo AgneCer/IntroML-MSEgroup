@@ -43,7 +43,11 @@ def load_model(model_class, filename, current_model, output_dim, device=device):
     print(f"Saving path to download model: {save_path}")
 
     if os.path.exists(save_path):
-        model = model_class(output_dim=output_dim).to(device)  # Initialize the model before loading the state
+        if current_model =="CLIP":
+            model = model_class(output_dim=output_dim)[0].to(device)  # Initialize the model before loading the state
+        else:
+             model = model_class(output_dim=output_dim)[0].to(device)  # Initialize the model before loading the state
+        
         model.load_state_dict(torch.load(save_path, map_location=device))
         model.eval()  # Put the model in evaluation mode
         print("The model has been successfully loaded!")
