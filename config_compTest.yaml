@@ -9,7 +9,7 @@ pretrained:
 
 data:
   batch_size_train: 64
-  batch_size_test: 256
+  batch_size_test: 512
   num_workers: 4
   output_dim: 100
   path_root: "competition_data/test"

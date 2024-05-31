@@ -1,5 +1,5 @@
 training:
-  num_epochs: 50
+  num_epochs: 20
   save_name: "trained_competition.pt"
 
 #dataset names: "Flowers", "Cub", "Dogs", "Airplanes", "Food"
