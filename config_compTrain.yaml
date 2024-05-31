@@ -1,5 +1,5 @@
 training:
-  num_epochs: 10
+  num_epochs: 30
   save_name: "trained_competition.pt"
 
 #dataset names: "Flowers", "Cub", "Dogs", "Airplanes", "Food"
@@ -15,7 +15,7 @@ pretrained:
   load: ".pt"
 
 data:
-  batch_size_train: 64
+  batch_size_train: 128
   batch_size_test: 256
   num_workers: 4
   output_dim: 100
