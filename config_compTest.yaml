@@ -1,7 +1,7 @@
 
 #model name: "CLIP", "Vgg19", "ResNet50"
 
-model: "ResNet50"
+model: "Vgg19"
 
 pretrained:
   pre_t: True
