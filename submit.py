@@ -88,5 +88,5 @@ res = {
     "groupname": "MSE-MagnificheSireneEnterprise"
 }
 
-print(res[:5])
+print(res)
 submit(res)
