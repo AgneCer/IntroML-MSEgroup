@@ -4,7 +4,7 @@
 model: "ResNet50"
 
 pretrained:
-  pre_t: True
+  pre_t: False
   load: "trained_competition.pt"
 
 data:
