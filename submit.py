@@ -85,8 +85,8 @@ preds = utils.return_predictions_dict(best_model, test_loader, device, class_map
 
 res = {
     "images": preds,
-    "groupname": "#PROVA MSE-MagnificheSireneEnterprise"
+    "groupname": "# PROVA MSE-MagnificheSireneEnterprise"
 }
 
-print(res)
+#print(res)
 submit(res)
