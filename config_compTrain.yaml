@@ -1,5 +1,5 @@
 training:
-  num_epochs: 2
+  num_epochs: 50
   save_name: "trained_competition.pt"
 
 #dataset names: "Flowers", "Cub", "Dogs", "Airplanes", "Food"
@@ -8,7 +8,7 @@ dataset: "Train_Competition"
 
 #model name: "CLIP", "Vgg19", "ResNet50"
 
-model: "Vgg19"
+model: "ResNet50"
 
 pretrained:
   pre_t: False
