@@ -72,7 +72,7 @@ def return_predictions_dict(model, test_loader, device, class_mapping, keep_full
                 if not keep_full_label:
                     class_name = class_name.split('_')[0]
                 
-                preds_dict[image_id] = class_name
+                preds_dict[image_id + ".jpg"] = class_name
 
     return preds_dict
 
