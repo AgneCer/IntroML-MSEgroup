@@ -1,6 +1,6 @@
 training:
   num_epochs: 2
-  save_name: "trained_ResNet50_flowers.pt"
+  save_name: "trained_flowers.pt"
 
 #dataset names: "Flowers", "Cub", "Dogs", "Airplanes", "Food"
 
