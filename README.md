@@ -1,5 +1,5 @@
 
-# Fine Grained Image Classification Project
+# Fine-Grained Image Classification Project
 
 This is the repository for the project of the course "Introduction to Machine Learning" taught by Professors Rota, Wang and Liberatori for UniTn, 2024. This model is designed to train and evaluate fine grained image classification models using various datasets. The project includes scripts for data preprocessing, model training, testing, and submission for a final competition.
 
@@ -45,14 +45,15 @@ Ensure you have the datasets downloaded and available in the appropriate directo
 
 ### Running the Project
 
+This code was used for two purposes: to evaluate how three different models (Vgg19, ResNet50 and CLIP) perform in the fine-grained image classification task, and to participate in an internal course competition. Belong is an explanation of how to use the code. 
+
 1. **Training and Testing the models on datasets:**
    
-   
    ```bash
-   python main.py --config config_flowers102.yaml
+   python main.py --config [choosen_config].yaml --run_name [RunName]
    ```
 
-   Replace `config_flowers102.yaml` with the appropriate configuration file for your dataset.
+   Replace `[choosen_config]` with the appropriate configuration file for your dataset and `[RunName]` with the choosen run name. 
 
 2. **Training and Testing the models for the competition:**
    ```bash
@@ -60,10 +61,35 @@ Ensure you have the datasets downloaded and available in the appropriate directo
    ```
 
 ## Configuration
-
-The configuration files (`config_flowers102.yaml`, `config_Dogs.yaml`, `config_CUB.yaml`, `config_Cars.yaml`) contain parameters for training, testing, and data paths. Customize these files to suit your needs.
-
-
+1. **Training and Testing the models on datasets:**
+    The configuration files (`config_flowers102.yaml`, `config_Dogs.yaml`, `config_CUB.yaml`, `config_Cars.yaml`) contain parameters for training, testing, and data paths. In particular, they contains:
+    - `num_epochs`: number of epochs for training.
+    - `save_name`: model save name.
+    - `dataset`: name of the dataset.
+    - `model`: model to use (ResNet50, Vgg19, or CLIP).
+    - `pre_t`: True or False, depending on whether to use a previously trained model.
+    - `load`: if the previous is True, it should contain the name of the pre-trained model.
+    - `batch_size_train`: batch size for training.
+    - `batch_size_test`: batch size for testing.
+    - `num_workers`: number of workers used.
+    - `output_dim`: dimension of the output, i.e., the number of classes.
+    - `path_root`: path to the dataset.
+    - `wandb`: True or False, depending on whether the user wants to visualize graphs on WandB.
+    
+2. **Training and Testing the models for the competition:**
+        The configuration files (`config_flowers102.yaml`, `config_Dogs.yaml`, `config_CUB.yaml`, `config_Cars.yaml`) contain parameters for training, testing, and data paths. In particular, they contains:
+    - `num_epochs`: number of epochs for training.
+    - `save_name`: model save name.
+    - `dataset`: name of the dataset.
+    - `model`: model to use (ResNet50, Vgg19, or CLIP).
+    - `pre_t`: True or False, depending on whether to use a previously trained model.
+    - `load`: if the previous is True, it should contain the name of the pre-trained model.
+    - `batch_size_train`: batch size for training.
+    - `batch_size_test`: batch size for testing.
+    - `num_workers`: number of workers used.
+    - `output_dim`: dimension of the output, i.e., the number of classes.
+    - `path_root`: path to the dataset.
+    - `wandb`: True or False, depending on whether the user wants to visualize graphs on WandB.
 ## Acknowledgements
 
 This project uses data from the following sources:

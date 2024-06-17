@@ -2,8 +2,6 @@ training:
   num_epochs: 30
   save_name: "trained_competition.pt"
 
-#dataset names: "Flowers", "Cub", "Dogs", "Airplanes", "Food"
-
 dataset: "Train_Competition"
 
 #model name: "CLIP", "Vgg19", "ResNet50"

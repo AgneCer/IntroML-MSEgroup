@@ -2,7 +2,8 @@ training:
   num_epochs: 30
   save_name: "trained_Dogs.pt"
 
-#dataset names: "Flowers", "Cub", "Dogs", "Airplanes", "Food"
+
+#dataset names: "Flowers", OR "Train_Competition" for Cub, Dogs and Cars
 
 dataset: "Train_Competition"
 
