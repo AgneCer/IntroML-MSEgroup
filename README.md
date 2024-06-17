@@ -48,7 +48,8 @@ Ensure you have the datasets downloaded and available in the appropriate directo
 This code was used for two purposes: to evaluate how three different models (Vgg19, ResNet50 and CLIP) perform in the fine-grained image classification task, and to participate in an internal course competition. Belong is an explanation of how to use the code. 
 
 1. **Training and Testing the models on datasets:**
-   
+   To compute train and test datasets simply run the `main.py` file. This, after dividing the dataset into train and validation, will train the model selected in the configuration file for as many epochs as specified, then return the accuracy of both training and validation.
+
    ```bash
    python main.py --config [choosen_config].yaml --run_name [RunName]
    ```
@@ -56,6 +57,8 @@ This code was used for two purposes: to evaluate how three different models (Vgg
    Replace `[choosen_config]` with the appropriate configuration file for your dataset and `[RunName]` with the choosen run name. 
 
 2. **Training and Testing the models for the competition:**
+    FINISCI QUI
+
    ```bash
    python test.py --config config_flowers102.yaml
    ```
@@ -77,19 +80,20 @@ This code was used for two purposes: to evaluate how three different models (Vgg
     - `wandb`: True or False, depending on whether the user wants to visualize graphs on WandB.
     
 2. **Training and Testing the models for the competition:**
-        The configuration files (`config_flowers102.yaml`, `config_Dogs.yaml`, `config_CUB.yaml`, `config_Cars.yaml`) contain parameters for training, testing, and data paths. In particular, they contains:
+        The configuration files (`config_compTrain.yaml`, `compTest.yaml`) contain parameters for training, testing, and data paths. In particular, they contains:
     - `num_epochs`: number of epochs for training.
     - `save_name`: model save name.
     - `dataset`: name of the dataset.
     - `model`: model to use (ResNet50, Vgg19, or CLIP).
-    - `pre_t`: True or False, depending on whether to use a previously trained model.
-    - `load`: if the previous is True, it should contain the name of the pre-trained model.
+    - `pre_t`: True for the `compTest.yaml`, False for the `config_compTrain.yaml`.
+    - `load`: for the `compTest.yaml`, it contains the name of the pretrained model. 
     - `batch_size_train`: batch size for training.
     - `batch_size_test`: batch size for testing.
     - `num_workers`: number of workers used.
     - `output_dim`: dimension of the output, i.e., the number of classes.
     - `path_root`: path to the dataset.
     - `wandb`: True or False, depending on whether the user wants to visualize graphs on WandB.
+
 ## Acknowledgements
 
 This project uses data from the following sources:
