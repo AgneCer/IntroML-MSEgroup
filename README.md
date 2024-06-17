@@ -1,7 +1,7 @@
 
-# Image Classification Project
+# Fine Grained Image Classification Project
 
-This is the folder for the project of the course "Introduction to Machine Learning" taught by professors Rota, Wang and Liberatori for UniTn, 2024. This model is designed to train and evaluate fine grained image classification models using various datasets. The project includes scripts for data preprocessing, model training, testing, and submission for a final competition.
+This is the repository for the project of the course "Introduction to Machine Learning" taught by Professors Rota, Wang and Liberatori for UniTn, 2024. This model is designed to train and evaluate fine grained image classification models using various datasets. The project includes scripts for data preprocessing, model training, testing, and submission for a final competition.
 
 ## Project Structure
 
@@ -45,21 +45,18 @@ Ensure you have the datasets downloaded and available in the appropriate directo
 
 ### Running the Project
 
-1. **Training the Model:**
+1. **Training and Testing the models on datasets:**
+   
+   
    ```bash
-   python train.py --config config_flowers102.yaml
+   python main.py --config config_flowers102.yaml
    ```
 
    Replace `config_flowers102.yaml` with the appropriate configuration file for your dataset.
 
-2. **Testing the Model:**
+2. **Training and Testing the models for the competition:**
    ```bash
    python test.py --config config_flowers102.yaml
-   ```
-
-3. **Generating Submissions:**
-   ```bash
-   python submit.py --config config_flowers102.yaml
    ```
 
 ## Configuration
@@ -78,7 +75,9 @@ This project uses data from the following sources:
 ## Authors
 
 This project was created by the MSE-MagicheSireneEnterprise group, consisting of
- - Agnese Cervino @AgneCer
- - Alessandra Gandini @alegandini
- - Gaudenzia Genoni @Ggenoni
- - Maria Amalia Pelle @pariamelle
+ - Agnese Cervino - [@AgneCer](https://github.com/AgneCer)
+ - Alessandra Gandini - [@alegandini](https://github.com/alegandini)
+ - Gaudenzia Genoni - [@Ggenoni](https://github.com/Ggenoni)
+ - Maria Amalia Pelle - [@pariamelle](https://github.com/pariamelle)
+
+ 
