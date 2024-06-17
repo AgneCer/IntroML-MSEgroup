@@ -75,3 +75,10 @@ This project uses data from the following sources:
 - [CUB-200-2011](http://www.vision.caltech.edu/visipedia/CUB-200-2011.html)
 - [Stanford Cars Dataset](http://vision.stanford.edu/aditya86/ImageNetDogs/)
 
+## Authors
+
+This project was created by the MSE-MagicheSireneEnterprise group, consisting of
+ - Agnese Cervino @AgneCer
+ - Alessandra Gandini @alegandini
+ - Gaudenzia Genoni @Ggenoni
+ - Maria Amalia Pelle @pariamelle
