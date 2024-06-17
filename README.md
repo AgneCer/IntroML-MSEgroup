@@ -62,10 +62,10 @@ This code was used for two purposes: to evaluate how three different models (Vgg
    ```bash
    python main.py --config config_compTrain.yaml
    ```
-    To test the model, and consequently submit the results, yit is necessary to run the `submit.py` file. This loads the previously trained model, and classifies the images in the test set, producing a dictionary where the keys are the IDs of the images and the values are the assigned class.
+    To test the model, and consequently submit the results, it is necessary to run the `submit.py` file. This loads the previously trained model, and classifies the images in the test set, producing a dictionary where the keys are the IDs of the images and the values are the assigned class.
 
    ```bash
-   python submit.py --config compTest.yaml
+   python submit.py --config config_compTest.yaml
    ```
 
 ## Configuration
