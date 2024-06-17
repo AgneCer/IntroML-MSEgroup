@@ -1,7 +1,7 @@
 
 # Fine-Grained Image Classification Project
 
-This is the repository for the project of the course "Introduction to Machine Learning" taught by Professors Rota, Wang and Liberatori for UniTn, 2024. This model is designed to train and evaluate fine grained image classification models using various datasets. The project includes scripts for data preprocessing, model training, testing, and submission for a final competition.
+This is the repository for the project of the course "Introduction to Machine Learning" taught by Professors Rota, Wang and Liberatori for UniTn, 2024. This model is designed to train and evaluate fine-grained image classification models using various datasets. The project includes scripts for data preprocessing, model training, testing, and submission for a final competition.
 
 ## Project Structure
 
@@ -57,10 +57,15 @@ This code was used for two purposes: to evaluate how three different models (Vgg
    Replace `[choosen_config]` with the appropriate configuration file for your dataset and `[RunName]` with the choosen run name. 
 
 2. **Training and Testing the models for the competition:**
-    FINISCI QUI
+    For the course competition, a few changes need to be made to the code run. The initial part remains unchanged: by running `main.py`, and properly configuring the configuration file, the chosen model will examine the dataset, dividing it into train set and validation set, and train it on the available data. 
 
    ```bash
-   python test.py --config config_flowers102.yaml
+   python main.py --config config_compTrain.yaml
+   ```
+    To test the model, and consequently submit the results, yit is necessary to run the `submit.py` file. This loads the previously trained model, and classifies the images in the test set, producing a dictionary where the keys are the IDs of the images and the values are the assigned class.
+
+   ```bash
+   python submit.py --config compTest.yaml
    ```
 
 ## Configuration
@@ -104,7 +109,7 @@ This project uses data from the following sources:
 
 ## Authors
 
-This project was created by the MSE-MagicheSireneEnterprise group, consisting of
+This project was created by the MSE-MagicheSireneEnterprise group, consisting of:
  - Agnese Cervino - [@AgneCer](https://github.com/AgneCer)
  - Alessandra Gandini - [@alegandini](https://github.com/alegandini)
  - Gaudenzia Genoni - [@Ggenoni](https://github.com/Ggenoni)
