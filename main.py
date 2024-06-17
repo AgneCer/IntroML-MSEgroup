@@ -108,7 +108,7 @@ def main(args):
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser("")
-    parser.add_argument("--config", required=True, type=str, help="Path to the configuration file")
+    parser.add_argument("--config", default="config.yaml", type=str, help="Path to the configuration file")
     parser.add_argument("--run_name", required=False, type=str, help="Name of the run")
     args = parser.parse_args()
     main(args)

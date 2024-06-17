@@ -9,3 +9,4 @@ Azure:
     python main.py --config [config].yaml --run_name [my_run]
     (remember to pip install clip on the ssh)
 
+prova
