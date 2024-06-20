@@ -1,5 +1,5 @@
 training:
-  num_epochs: 15
+  num_epochs: 20
   save_name: "trained_Dogs.pt"
 
 

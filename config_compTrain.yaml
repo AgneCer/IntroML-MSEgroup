@@ -6,7 +6,7 @@ dataset: "Train_Competition"
 
 #model name: "CLIP", "Vgg19", "ResNet50"
 
-model: "CLIP"
+model: "ResNet50"
 
 pretrained:
   pre_t: False
