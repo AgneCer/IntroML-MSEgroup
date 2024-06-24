@@ -105,7 +105,7 @@ This project uses data from the following sources:
 - [Flowers 102](http://www.robots.ox.ac.uk/~vgg/data/flowers/102/)
 - [Dogs Dataset](http://vision.stanford.edu/aditya86/ImageNetDogs/)
 - [CUB-200-2011](http://www.vision.caltech.edu/visipedia/CUB-200-2011.html)
-- [Stanford Cars Dataset](http://vision.stanford.edu/aditya86/ImageNetDogs/)
+- [Stanford Cars Dataset](https://www.kaggle.com/datasets/jessicali9530/stanford-cars-dataset)
 
 ## Authors
 
