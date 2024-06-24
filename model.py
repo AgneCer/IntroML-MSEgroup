@@ -16,11 +16,17 @@ class BottleneckCLIP(nn.Module):
         # Add a bottleneck
         self.bottleneck = nn.Sequential(
             nn.Linear(in_features, in_features // 2, bias=bias),
+            nn.BatchNorm1d(in_features // 2),
             nn.ReLU(inplace=True),
+            nn.Dropout(0.5),
             nn.Linear(in_features // 2, in_features // 2, bias=bias),
+            nn.BatchNorm1d(in_features // 2),
             nn.ReLU(inplace=True),
+            nn.Dropout(0.5),
             nn.Linear(in_features // 2, out_features, bias=bias),
+            nn.BatchNorm1d(out_features),
             nn.ReLU(inplace=True),
+            nn.Dropout(0.5),
             nn.Linear(out_features, output_dim)
         )
 
